@@ -1,4 +1,4 @@
-package com.abin.netty.chat;
+package com.abin.netty.simple;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
