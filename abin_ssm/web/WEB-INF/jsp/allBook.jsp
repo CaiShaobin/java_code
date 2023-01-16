@@ -49,6 +49,7 @@
                             <th>书籍名称</th>
                             <th>书籍数量</th>
                             <th>书籍详情</th>
+                            <th>操作</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -58,6 +59,12 @@
                                 <th>${book.bookName}</th>
                                 <th>${book.bookCounts}</th>
                                 <th>${book.bookDesc}</th>
+
+                                <th>
+                                    <a class="btn btn-default" href="${pageContext.request.contextPath}/book/toUpdateBook?bookId=${book.bookId}&bookName=${book.bookName}&bookCounts=${book.bookCounts}&bookDesc=${book.bookDesc}">编辑书籍</a>
+
+                                    <a class="btn btn-default" href="${pageContext.request.contextPath}/book/deleteBook?bookId=${book.bookId}">删除书籍</a>
+                                </th>
                             </tr>
                         </c:forEach>
                     </tbody>
