@@ -1,0 +1,45 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!-- 注册Bean -->
+    <bean id="userService" class="com.abin.service.UserServiceImpl"/>
+    <bean id="log" class="com.abin.aop.ServiceBeforeAdvice"/>
+    <bean id="afterLog" class="com.abin.aop.ServiceAfterReturningAdvice"/>
+
+    <!-- 使用SpringAPI接口 -->
+    <!-- 配置aop：需要导入aop的约束 -->
+<!--    <aop:config>-->
+<!--        &lt;!&ndash; 切入点：expression：表达式，execution(* * * * *)：执行位置 &ndash;&gt;-->
+<!--        <aop:pointcut id="pointcut" expression="execution(* com.abin.service.UserService.*(..))"/>-->
+
+<!--        &lt;!&ndash; 执行环绕增加 &ndash;&gt;-->
+<!--        <aop:advisor advice-ref="log" pointcut-ref="pointcut"/>-->
+<!--        <aop:advisor advice-ref="afterLog" pointcut-ref="pointcut"/>-->
+<!--    </aop:config>-->
+
+    <!-- 自定义类 -->
+<!--    <bean id="diy" class="com.abin.diy.DiyAdvice"/>-->
+
+<!--    <aop:config>-->
+<!--        &lt;!&ndash; 自定义切面，ref 要引用的类 &ndash;&gt;-->
+<!--        <aop:aspect ref="diy">-->
+<!--            &lt;!&ndash; 切入点 &ndash;&gt;-->
+<!--            <aop:pointcut id="pointcut" expression="execution(* com.abin.service.UserService.*(..))"/>-->
+
+<!--            &lt;!&ndash; 通知 &ndash;&gt;-->
+<!--            <aop:before method="before" pointcut-ref="pointcut"/>-->
+<!--            <aop:after method="after" pointcut-ref="pointcut"/>-->
+<!--        </aop:aspect>-->
+<!--    </aop:config>-->
+
+    <bean id="annotationAOP" class="com.abin.annotation.AnnotationAOP"/>
+
+    <aop:aspectj-autoproxy/>
+
+
+</beans>
