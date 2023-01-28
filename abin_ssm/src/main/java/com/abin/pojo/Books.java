@@ -1,10 +1,5 @@
 package com.abin.pojo;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-
 public class Books {
 
     int bookId;

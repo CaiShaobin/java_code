@@ -34,9 +34,17 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row form-inline">
             <div class="col-md-4 column">
                 <a class="btn btn-default" href="${pageContext.request.contextPath}/book/toAddBook">新增书籍</a>
+            </div>
+            <div class="col-md-8 column clearfix">
+                <a href="${pageContext.request.contextPath}/book/allBook" style="float: right" class="btn btn-default">显示全部</a>
+                <form class="form-search" action="${pageContext.request.contextPath}/book/queryBook" style="float: right">
+                    <span style="color:red;font-weight: bold">${error}</span>
+                    <input name="queryBookName" class="input-medium search-query form-control" type="text" placeholder="输入查询的书籍名称"/>
+                    <button class="btn btn-default" contenteditable="true" type="submit">查找</button>
+                </form>
             </div>
         </div>
 

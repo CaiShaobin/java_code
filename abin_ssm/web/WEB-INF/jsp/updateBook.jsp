@@ -12,9 +12,15 @@
     .hide {
         display: none;
     }
+    h1{
+        width: 180px;
+        height: 38px;
+        margin: 100px auto;
+        text-align:center;
+    }
 </style>
 <head>
-    <title>更新书籍</title>
+    <title>Update_Books</title>
 </head>
 <body>
     <div class="container">
@@ -27,26 +33,29 @@
                 </div>
             </div>
         </div>
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <form action="${pageContext.request.contextPath}/book/updateBook" method="post">
+                    <div class="hide">
+                        <label for="bookName">书籍编号</label>
+                        <input type="text" name="bookId" class="form-control" id="bookId" value="${books.bookId}">
+                    </div>
+                    <div class="form-group">
+                        <label for="bookName">书籍名称</label>
+                        <input type="text" name="bookName" class="form-control" id="bookName" value="${books.bookName}">
+                    </div>
+                    <div class="form-group">
+                        <label for="bookCounts">书籍数量</label>
+                        <input type="text" name="bookCounts" class="form-control" id="bookCounts" value="${books.bookCounts}">
+                    </div>
+                    <div class="form-group">
+                        <label for="bookDesc">书籍描述</label>
+                        <input type="text" name="bookDesc" class="form-control" id="bookDesc" value="${books.bookDesc}">
+                    </div>
+                    <button type="submit" class="btn btn-default">提交修改</button>
+                </form>
+            </div>
+        </div>
     </div>
-
-    <form action="${pageContext.request.contextPath}/book/updateBook" method="post">
-        <div class="hide">
-            <label for="bookName">书籍编号</label>
-            <input type="text" name="bookId" class="form-control" id="bookId" value="${books.bookId}">
-        </div>
-        <div class="form-group">
-            <label for="bookName">书籍名称</label>
-            <input type="text" name="bookName" class="form-control" id="bookName" value="${books.bookName}">
-        </div>
-        <div class="form-group">
-            <label for="bookCounts">书籍数量</label>
-            <input type="text" name="bookCounts" class="form-control" id="bookCounts" value="${books.bookCounts}">
-        </div>
-        <div class="form-group">
-            <label for="bookDesc">书籍描述</label>
-            <input type="text" name="bookDesc" class="form-control" id="bookDesc" value="${books.bookDesc}">
-        </div>
-        <button type="submit" class="btn btn-default">提交修改</button>
-    </form>
 </body>
 </html>

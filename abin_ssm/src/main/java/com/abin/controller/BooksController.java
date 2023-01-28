@@ -2,12 +2,11 @@ package com.abin.controller;
 
 import com.abin.pojo.Books;
 import com.abin.service.BooksService;
-import com.alibaba.fastjson.JSON;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
@@ -81,5 +80,23 @@ public class BooksController {
         String id = request.getParameter("bookId");
         booksService.deleteBooks(Integer.parseInt(id));
         return "redirect:/book/allBook";
+    }
+
+    @RequestMapping("/queryBook")
+    public String queryBook(String queryBookName,Model model){
+
+        System.out.println("要查询的书籍名称：" + queryBookName);
+        List<Books> books = booksService.queryAllBooks();
+        if (StringUtils.isEmpty(queryBookName)){
+            model.addAttribute("list",books);
+            return "allBook";
+        }
+        List<Books> list = books.stream().filter(t -> queryBookName.equals(t.getBookName())).collect(Collectors.toList());
+        if (list.size() < 1){
+            model.addAttribute("error","没有找到这本书！");
+            return "allBook";
+        }
+        model.addAttribute("list",list);
+        return "allBook";
     }
 }
