@@ -45,7 +45,7 @@
                 <label for="bookDesc">书籍描述</label>
                 <input type="text" name="bookDesc" class="form-control" id="bookDesc">
             </div>
-            <button type="submit" class="btn btn-default">提交修改</button>
+            <button type="submit" class="btn btn-default">确认新增</button>
         </form>
     </div>
 </body>

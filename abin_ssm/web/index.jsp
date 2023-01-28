@@ -24,12 +24,14 @@
 </style>
 <html>
   <head>
-    <title>欢迎界面</title>
+    <title>Welcome</title>
   </head>
 
   <body>
-    <h3>
-      <a href="${pageContext.request.contextPath}/book/allBook">进入书记管理页面</a>
-    </h3>
+
+      <h3>
+        <a href="${pageContext.request.contextPath}/book/allBook">进入书籍管理页面</a>
+      </h3>
+
   </body>
 </html>
