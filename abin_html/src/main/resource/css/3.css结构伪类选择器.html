@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>结构伪类选择器</title>
+
+    <style>
+        /*伪类：style标签中:号后面的*/
+        a:hover{
+            background: #c7ee12;
+        }
+        /*ul的第一个子元素*/
+        ul li:first-child{
+            background: darkseagreen;
+        }
+        /*ul的最后一个元素*/
+        ul li:last-child{
+            background: #976767;
+        }
+        /*全部li标签，第2个元素变蓝*/
+        li:nth-child(2){
+            background: blue;
+        }
+        /*全部p标签的第一个元素变黄*/
+        p:nth-of-type(1){
+            background: yellow;
+        }
+    </style>
+</head>
+<body>
+    <p>p1</p>
+    <p>p2</p>
+    <p>p3</p>
+    <ul>
+        <li>l1</li>
+        <li>l2
+            <p>p4
+                <ul>
+                    <li>l2.1</li>
+                    <li>l2.2</li>
+                    <li>l2.3</li>
+                </ul>
+            </p>
+        </li>
+        <li>l3</li>
+    </ul>
+    <a href="../1.我的第一个HTML网站.html">伪类：悬停高亮</a>
+</body>
+</html>

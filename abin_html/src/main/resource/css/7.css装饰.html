@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>装饰</title>
+    <style>
+        #pp0 img,span{
+            vertical-align: middle;/*垂直-对齐：需要提供参照物*/
+        }
+        #img1{
+            width: 300px;
+            height: 300px;
+        }
+        #sp0{
+            /*
+                文本修饰：
+                    1.下划线
+                    2.中划线
+                    3.上划线
+            */
+            text-decoration: none;
+            /*text-decoration: underline;*/
+            /*text-decoration: line-through; */
+            /*text-decoration: overline; */
+        }
+        a:hover{
+            color: #0d58de;/*鼠标悬停事件（a需要为默认颜色）*/
+        }
+        a:active{
+            background: darkseagreen;/*鼠标点击事件*/
+        }
+        #pp1{
+            /*
+                rgb:红绿蓝
+                #000000:黑色  (原色range:00~99)
+                rgba：红绿蓝+透明度
+            */
+            /*color: rgb(0,0,255);*/
+            /*color: #000000;*/
+            color: rgba(0,0,255,0.8);
+            font: bolder 30px "宋体";
+            text-align: center;
+
+            /*文本高度 = 元素高度时，实现垂直居中*/
+            line-height: 100px;
+            height: 100px;
+
+            /*
+                阴影
+                阴影颜色，水平偏移，垂直偏移，阴影半径
+            */
+            text-shadow: #ff9427 10px -2px 2px;
+        }
+        #pp2{
+            background: coral;/*背景色*/
+            text-align: center;/*文本水平居中*/
+        }
+        #pp3{
+            text-indent: 2em;/*首行缩进2字符*/
+        }
+
+    </style>
+</head>
+<body>
+    <p id="pp0">
+        <img id="img1" src="../image/1.jpg" alt="猪头" title="佩奇">
+        <a href="" id="sp0">小猪佩奇</a>
+    </p>
+    <p id="pp1">嘻嘻哈哈</p>
+    <p id="pp2">
+        1.行内样式<br>
+        2.内部样式<br>
+        3.外部样式<br>
+    </p>
+    <p id="pp3">
+        可以看出成都相对一线城市的互联网氛围确实差了很多。但是！成都已经是在内陆城市中甚至二线城市中的佼佼者了！
+        从公司的情况上也可以看出：成都互联网行业目前的名片是“游戏”，腾讯、完美世界等大厂，还有无数小厂都在成都搞游戏，可能成都的天然属性就是娱乐，这里是游戏的沃土吧。
+        相信大家如果在一些招聘平台上去搜，其实很多公司都在成都，但都是把客服之类的工作安排在成都，而我在列举的时候尽量把研发相关在成都的公司列出来，这样对大家更有帮助。
+    </p>
+</body>
+</html>

@@ -10,10 +10,37 @@
     <meta name="description" content="abin想要找一个好工作">
     <!-- title：网页标题 -->
     <title>我的第一个HTML网站</title>
+
+    <!--外部样式引入-->
+<!--    <link rel="stylesheet" href="./css/abin_css.css">-->
+    <!--内部样式-->
+    <style>
+        /*外部样式引入，方式2（css2.1）*/
+        @import url("css/abin_css.css");
+        h2{
+            color: darkseagreen;
+        }
+    </style>
+
 </head>
 <!-- body：网页主体 -->
 <body>
-    Hello Html!
+
+    <!--
+        css导入方式：
+            1.行内样式
+            2.内部样式
+            3.外部样式
+        优先级：行内最高（就近原则，看外部样式引入和style标签谁更接近选择）
+    -->
+    <!--行内样式-->
+    <!--;号隔开多个-->
+    <h1 style="color: coral;text-align: center">Hello CSS!</h1>
+    <!--内部样式-->
+    <h2>Hello CSS...</h2>
+    <!--外部样式-->
+    <h3>Hello Html!</h3>
+
     <a name="skip"></a>
 </body>
 </html>

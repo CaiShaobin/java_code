@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>字体样式</title>
+    <style>
+        /*
+            font-family: 字体
+            font-size:字体大小
+            font-weight:字体粗细
+            color:字体颜色
+        */
+        #pppp{
+            font-family: 楷体;
+            color: black;
+            font-size: 50px;
+            font-weight: bolder;
+        }
+        #span111{
+            /* 依次为：font-style、font-weight、font-size、font-family*/
+            font: oblique 100 100px "楷体";
+        }
+    </style>
+</head>
+<body>
+    <p id="pppp">
+        不，这些都还不够！<br>
+        我必须是你近旁的一株木棉，<br>
+        作为树的形象和你站在一起。<br>
+        根，紧握在地下；<br>
+        叶，相触在云里。<br>
+        每一阵风过，<br>
+        我们都互相致意，<br>
+        但没有人，<br>
+        听懂我们的言语。<br>
+        你有你的铜枝铁干，<br>
+        像刀，像剑，也像戟；<br>
+        我有我红硕的花朵，<br>
+        像沉重的叹息，<br>
+        又像英勇的火炬。<br>
+    </p>
+
+    <p id="ppp2">
+        <span id="span111">行内元素和块元素</span>
+        块元素：
+        无论内容多少，该元素独占一行
+        p、h1~h6...
+        行内元素：
+        内容撑开宽度，左右都是行内元素的可以排在一行
+        a、strong、em...
+    </p>
+</body>
+</html>

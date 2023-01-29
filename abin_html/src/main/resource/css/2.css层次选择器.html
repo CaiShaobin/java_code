@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>层次选择器</title>
+    <style>
+        /*1.后代选择器*/
+        body p{
+            color: black;
+        }
+        /*2.子选择器：只选一代*/
+        body>p{
+            background: brown;
+        }
+        /*3.相邻兄弟选择器：同辈向下找一个*/
+        .ppp+p{
+            background: #976767;
+            border-radius: 20px;
+        }
+        /*4.通用兄弟选择器：同辈向下找全部*/
+        #active~p{
+            background: #edff9a
+        }
+    </style>
+</head>
+<body>
+
+    <p>p1</p>
+    <p class="ppp">p2</p>
+    <p>p3</p>
+    <p>
+        <ul>
+            <li>
+                <p>p4</p>
+                <p id="active">p5</p>
+                <p>p6</p>
+                <p>p7</p>
+            </li>
+            <li><p>p8</p></li>
+            <li><p>p9</p></li>
+        </ul>
+    </p>
+</body>
+</html>
