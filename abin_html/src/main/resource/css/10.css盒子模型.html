@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>盒子模型</title>
+    <style>
+        /*
+            盒子模型：
+            margin：外边距
+            padding：内边距
+            border：边框
+        */
+        body,div,p,a {
+            margin: 0px;
+            padding: 0px;
+        }
+        #box{
+            margin: auto;
+        }
+        a{
+            float: bottom;
+            display: block;
+            height: 50px;
+            width: 50px;
+            background: darkseagreen;
+            text-align: center;
+            border-radius: 10px;
+            color: #976767;
+            text-decoration: none;
+            font: bold 20px/50px Arial;
+        }
+    </style>
+</head>
+<body style="width:800px;height:800px">
+
+    <div id="box">
+        <a href="" class="links item active" target="_self" title="test">2</a>
+    </div>
+</body>
+</html>
