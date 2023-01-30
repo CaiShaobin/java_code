@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>父级边框塌陷问题</title>
+    <style>
+        #father{
+        border: 1px #000 solid;
+            /*overflow: auto;!*方案3：溢出：会自动调整*!*/
+            /*height: 1500px;!*方案1：父级元素设置高度以保证能够容纳*!*/
+
+        }
+        /*方案4：☆☆☆☆☆☆☆*/
+        #father:after{
+            /*等价于：方案1*/
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .layer01{
+            border: 1px #F00 dashed;
+            display: inline-block;
+            float: left;
+        }
+        .layer02{
+            border: 1px #00F dashed;
+            display:inline-block;
+            float: left;
+            /*height: 600px;*/
+            /*overflow: hidden;!*超出部分隐藏*!*/
+            /*overflow: scroll;!*超出部分滚动条*!*/
+        }
+        .layer03{
+            border: 1px #060 dashed;
+            display: inline-block;
+            float: right;
+            clear: both;/*两侧不允许有浮动元素*/
+            /*
+                clear：
+                    left
+                    right
+                    both
+                    none
+            */
+        }
+        .layer04{
+            border: 1px #666 dashed;
+            display: inline-block;
+            float: right;
+            font-size: 12px;
+            line-height: 30px;
+            clear: both;
+        }
+        #clear{
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div id="father">
+        <div class="layer01"><img src="../image/1.ico" alt=""></div>
+        <div class="layer02"><img src="../image/88204485_p1_master1200.jpg" alt=""></div>
+        <div class="layer03"><img src="../image/f13.ico" alt=""></div>
+        <div class="layer04">
+            浮动的block可以向左浮动，也可以向右浮动，直到它的外边缘碰到 包含框 或 另一个浮动的block为止
+        </div>
+<!--        <div id="clear"></div>&lt;!&ndash; 方案2：加一个空的div&ndash;&gt;-->
+    </div>
+</body>
+</html>

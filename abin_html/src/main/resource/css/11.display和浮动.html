@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dispaly和浮动</title>
+    <style>
+
+        /*
+            display：遵循  标准文档流
+                block 块元素
+                inline 行内元素
+                inline-block 内联块元素（在一行）
+                none
+        */
+        /*
+            float   左右浮动
+                脱离标准文档流：需要解决父级边框塌陷的问题
+                    1.浮动元素后面添加空div
+                    2.设置父元素高度
+                    3.overflow：不适用于下拉场景
+                    4.父类添加一个伪类：after（推荐使用）
+        */
+        body,div,img,span,ul,li,a{
+            margin: 0px;
+        }
+        #header{
+            height: 100px;
+            width: auto;
+            box-shadow: 0 2px 4px rgb(0 0 0 / 8%);
+        }
+        #image1{
+            margin-top: 10px;
+            margin-right: 100px;
+            float: right;
+            display: block;
+            border-radius: 80px;
+        }
+        #header li{
+            margin-top: 10px;
+            list-style: none;
+            display: inline-block;
+            height: 80px;
+            float: left;
+            margin-right: 50px;
+            line-height: 80px;
+        }
+        a{
+            text-decoration: none;
+            font: bolder 80px/100px inherit;
+            color: rgb(246, 179, 59);
+        }
+        a:hover{
+            color: rgb(141, 196, 232);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="header">
+        <img id="image1" src="../image/1.jpg" alt="Loggo">
+        <ul>
+            <li><span><a href="#">首页</a></span></li>
+            <li><span><a href="#">主页</a></span></li>
+            <li><span><a href="#">封面</a></span></li>
+        </ul>
+    </div>
+</body>
+</html>

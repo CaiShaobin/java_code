@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定位</title>
+    <style>
+
+        /*
+            position：位置
+                relative：相对位置
+                absolute: 绝对定位
+                    1.相对于浏览器
+                    2.父级元素有定位时，相对于父级元素
+                fixed：固定定位
+        */
+        .box{
+            height: 384px;
+            width: 384px;
+            border: black solid 1px;
+            /*position: relative;*/
+        }
+
+        #div3{
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+        #div5{
+            position: fixed;
+            left: 0;
+            bottom: 0;
+        }
+        /*#div1,#div2,#div2{*/
+        /*    display: inline-block;*/
+        /*}*/
+        /*#div2,#div3{*/
+        /*    position: relative;*/
+        /*    left: 128px;*/
+        /*}*/
+
+        /*#div4,#div5{*/
+        /*    float: right;*/
+        /*}*/
+        /*#div5{*/
+        /*    position: relative;*/
+        /*    right: 128px;*/
+        /*}*/
+
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div id="div1" class="img1"><a href="#"><img src="../image/1.ico" alt="#"></a></div>
+        <div id="div2" class="img1"><a href="#"><img src="../image/1.ico" alt="#"></a></div>
+        <div id="div3" class="img1"><a href="#"><img src="../image/1.ico" alt="#"></a></div>
+        <div id="div4" class="img1"><a href="#"><img src="../image/1.ico" alt="#"></a></div>
+        <div id="div5" class="img1"><a href="#"><img src="../image/1.ico" alt="#"></a></div>
+    </div>
+</body>
+</html>
