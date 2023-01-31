@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数</title>
+</head>
+<body>
+<script>
+    /**
+     * apply函数 ☆☆☆☆☆☆
+     *      可以用于指定this
+     */
+    function getAge() {
+        let bri =  this.bri;
+        return new Date().getFullYear() - bri;
+    }
+
+    var abin = {
+        bri:1996,
+        name: "abin",
+        address: "dayao",
+        type: typeof this //typeof 输出对象类型
+
+    }
+
+    abin.age = getAge.apply(abin,[]);// 此时this指向 abin
+    abin.ageType = typeof abin.age;
+    console.log(abin)
+
+
+</script>
+</body>
+</html>

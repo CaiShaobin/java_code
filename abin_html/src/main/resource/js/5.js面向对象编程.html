@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>面向对象</title>
+</head>
+<body>
+<script>
+    /**
+     * 原型链：
+     *      任何对象的顶层原型都是object
+     *          而object 的 原型是 它本身（循环）
+     */
+
+    // since ES6
+    /**
+     * class 关键字，定义一个类
+     */
+    class Student{
+        constructor(id,name,age) {
+            this.id = id;
+            this.name = name;
+            this.age = age;
+        }
+
+        study(){
+            alert("学习...")
+        }
+    }
+
+    class Citizen extends Student{
+        constructor(id,name,age,job) {
+            super();
+            this.job = job;
+        }
+        work(){
+            alert("工作...")
+        }
+    }
+
+    var abin2 = new Citizen(2,"abin",27,"Java");
+    abin2.work();
+    abin2.study();
+    var abin1 = new Student(1,"abin",27);
+    abin1.study();
+
+    // js普通方法
+    var User = {
+        id : 1,
+        name : "abin",
+        age: 27,
+        run(){
+            alert("run...")
+        }
+    }
+
+    var abin = {
+        name: "abin"
+    }
+    abin.__proto__ = User;//设置abin的原型
+    abin.run();
+
+</script>
+</body>
+</html>
