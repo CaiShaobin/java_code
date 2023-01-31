@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BOM对象</title>
+</head>
+<body>
+<script>
+    // window 调整浏览器窗口
+    // window.alert(1);
+    console.log(window.innerHeight);//内部高度：显示区域（不包括控制台）
+    console.log(window.innerWidth);
+    console.log(window.outerHeight);//外部：整个浏览器窗口
+    console.log(window.outerWidth);
+
+    // navigator:封装了浏览器的信息
+    // 一般不使用，因为会被人修改
+    console.log(navigator.appName);//Netscape
+    console.log(navigator.appVersion);//5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36
+    console.log(navigator.userAgent);//Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36
+    console.log(navigator.platform);//Win32
+
+    // screen：代表屏幕尺寸
+    console.log(screen.width);
+    console.log(screen.height);
+
+    /** location ☆☆☆☆☆☆
+     *      代表当前网页的URL信息
+     *          host:
+     *          href:
+     *          protocol:https
+     *          reload:f reload() 刷新网页
+     *          设置新的地址 -> location.assign("https://www.abin.com")
+     */
+    console.log(location);
+
+    /**
+     * document ☆☆☆
+     *      代表当前页面：HTML DOM文档树☆
+     */
+    console.log(document.title);
+    document.title = "操作BOM对象";// 可以修改title
+    console.log(document.title);
+
+    console.log(document.cookie);// 可以获取cookie
+
+    // history
+    // history.back();//回退
+    // history.forward();//前进
+</script>
+</body>
+</html>

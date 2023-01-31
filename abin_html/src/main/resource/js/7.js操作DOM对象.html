@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM对象</title>
+    <style>
+        h1{
+            display: block;
+            background: #0d58de;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="box">
+        <h1>标题1</h1>
+        <p id="p1">p1</p>
+        <p class="p2">p2</p>
+    </div>
+<script>
+
+    /**
+     * DOM ☆☆☆☆☆☆☆☆☆
+     * 核心：浏览器网页本身就是一个DOM树型结构
+     *      操作：
+     *          1.更新
+     *          2.遍历
+     *          3.删除
+     *          4.添加
+     */
+    //step1 : 要操作DOM节点，先获取到它
+    var h1 = document.getElementsByTagName('h1');//标签选择器
+    var p1 = document.getElementById('p1');//id选择器
+    var p2 = document.getElementsByClassName("p2");//类名选择器
+    var box = document.getElementById(`box`);
+
+    var children = box.children;// 获取父节点下的所有子节点
+    // var firstChild = box.firstChild;
+    // var lastChild = box.lastChild;
+
+    // 更新节点
+    h1.innerText = '更新文本内容';
+    h1.innerHTML = '<strong>18166454596</strong>';
+    // 注意：h1.style -> undefined
+    // (原因：操作的元素需要通过Id选择器唯一指定)???
+    p1.style.color = "red";
+    p1.style.fontsize = '20px';
+    p1.style.padding = '2em';
+
+    // 删除节点：子节点先获取父节点，通过父节点删除子(id选择器)
+    box.removeChild(p1);
+
+    // 根据位置删，需要注意这是一个动态的过程(0删除后会有新的0)
+    box.removeChild(box.children[0]);
+    box.removeChild(box.children[0]);//没了
+
+    // 插入节点
+
+</script>
+</body>
+</html>
