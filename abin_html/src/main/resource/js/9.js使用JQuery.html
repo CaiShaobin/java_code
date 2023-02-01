@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery</title>
+    <!--CDN引入-->
+<!--    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>-->
+    <script src="../lib/jquery-3.6.3.min.js"></script>
+
+    <style>
+        #box{
+            width: 300px;
+            height: 300px;
+            border: black solid 1px;
+        }
+    </style>
+</head>
+<body>
+
+<a href="#" id="test-jquery">点我</a>
+
+<ul id="test-ul">
+    <li class="js">JavaScript</li>
+    <li name="python">Python</li>
+</ul>
+
+<span id="sp1"></span>
+<div id="box"></div>
+<script>
+    /**
+     * JQuery公式：
+     *      $('css选择器').事件(函数())
+     *      $ -> 代表JQuery
+     *      css选择器： . #
+     *      事件： click/submit/...
+     *
+     *      https://jquery.cuishifeng.cn/  文档
+     *      ...
+     */
+    $('#test-jquery').click(
+        function () {
+            alert('JQuery测试...');
+        }
+    )
+    $('#box').mousemove(function(e){
+        $("span").text(e.pageX + ", " + e.pageY);
+    });
+
+    $('#test-ul li[name="python"]').text();// id + 层次 + 属性
+    $('#test-ul').html;
+</script>
+</body>
+</html>

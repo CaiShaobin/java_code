@@ -17,6 +17,13 @@
         <p id="p1">p1</p>
         <p class="p2">p2</p>
     </div>
+    <div id="box2">
+        <p id="pp1">javase</p>
+        <p id="pp2">javaee</p>
+        <p id="pp3">javame</p>
+    </div>
+    <p id="pp4">javascript</p>
+    <p id="pp5">jsp</p>
 <script>
 
     /**
@@ -29,7 +36,7 @@
      *          4.添加
      */
     //step1 : 要操作DOM节点，先获取到它
-    var h1 = document.getElementsByTagName('h1');//标签选择器
+    var h1 = document.getElementsByTagName('h1')[0];//标签选择器
     var p1 = document.getElementById('p1');//id选择器
     var p2 = document.getElementsByClassName("p2");//类名选择器
     var box = document.getElementById(`box`);
@@ -51,10 +58,21 @@
     box.removeChild(p1);
 
     // 根据位置删，需要注意这是一个动态的过程(0删除后会有新的0)
-    box.removeChild(box.children[0]);
-    box.removeChild(box.children[0]);//没了
+    // box.removeChild(box.children[0]);
+    // box.removeChild(box.children[0]);//没了
 
+    alert("插入节点试试");
     // 插入节点
+    var box2 = document.getElementById('box2');
+    box2.appendChild(document.getElementById('pp4'));//追加
+    alert("innerHtml添加，会替换元素")
+    // box2.innerHTML = '<p>innerHtml添加</p>';//覆写
+
+    var pp5 = document.getElementById(`pp5`)
+    var pp1 = document.getElementById('pp1')
+    // box2 -> 容器节点; pp5 -> newNode;pp1 -> targetNode
+    box2.insertBefore(pp5,pp1);
+
 
 </script>
 </body>
