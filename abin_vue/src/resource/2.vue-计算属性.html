@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算属性和方法</title>
+</head>
+<body>
+
+<div id="box">
+    <p>
+        <!--计算属性-->
+        {{getNow1}}
+        <!--方法-->
+        {{getNow2()}}
+    </p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    let vue = new Vue({
+        el:"#box",
+        data:{
+            message:"abin_vue"
+        },
+        methods:{
+            getNow2:function(){
+                return Date.now();
+            }
+        },
+        computed:{
+            getNow1:function () {
+                return Date.now();
+            }
+        }
+    });
+</script>
+</body>
+</html>

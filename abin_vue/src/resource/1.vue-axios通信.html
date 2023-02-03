@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Axios</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<div id="box">
+    <p>{{info.name}}</p>
+    <div>
+        <span>{{info.address.city}}</span>
+    </div>
+    <div>
+        <div v-for="link in info.links">
+            <a v-bind:href="link.url" class="btn btn-default">{{link.name}}</a>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    var vue = new Vue({
+       el: '#box',
+        data(){
+           return{
+               info:{
+                   name : null,
+                   url:null,
+                   address: {
+                     street:null,
+                     city:null,
+                     country:null
+                   },
+                   links:[
+                       {
+                           name: null,
+                           url: null
+                       }
+                   ]
+               }
+           }
+        },
+        mounted(){
+           axios.get('./data.json').then(response=>(this.info=response.data))
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "name": "abin_vue",
+  "url": "https://www.baidu.com",
+  "page": 1,
+  "isNonProfit": true,
+  "address": {
+    "street": "成华大道",
+    "city": "四川成都",
+    "country": "中国"
+  },
+  "links": [
+    {
+      "name": "bilibili",
+      "url": "https://www.bilibili.com"
+    },
+    {
+      "name": "taobao",
+      "url": "www.taobao.com"
+    },
+    {
+      "name": "github",
+      "url": "https://github.com"
+    }
+  ]
+}

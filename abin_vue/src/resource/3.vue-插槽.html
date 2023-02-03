@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>插槽</title>
+</head>
+<body>
+
+<div id="box">
+    <todo>
+        <todo-title slot="todo-title" v-bind:title="title">
+            <todo-items slot="todo-items" v-for="(item,index) in items" v-bind:item="item" v-bind:index="index" v-on:remove="removeItems(index)" v-bind:key="index"></todo-items>
+        </todo-title>
+    </todo>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    Vue.component("todo",{
+        template:"<div>\
+                        <slot name='todo-title'></slot>\
+                 </div>"
+    });
+    Vue.component("todo-title",{
+        props:['title'],
+        template: "<div>{{title}}\
+                        <ul>\
+                            <slot name='todo-items'></slot>\
+                        </ul>\
+                   </div>"
+    });
+    Vue.component("todo-items",{
+        props:['item','index'],
+        template:" <li>{{item}}\
+                        <button @click='remove'>del</button>\
+                    </li>",
+        methods:{
+            remove:function (index) {
+                this.$emit('remove',index);
+            }
+        }
+    })
+    var vue = new Vue({
+        el:"#box",
+        data:{
+            title:"abin_vue",
+            items:["Java","MySQL","Vue"]
+        },
+        methods: {
+            removeItems(index){
+                this.items.splice(index,1);
+            }
+        }
+    });
+</script>
+</body>
+</html>
