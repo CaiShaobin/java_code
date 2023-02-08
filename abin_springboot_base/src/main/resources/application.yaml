@@ -1,0 +1,13 @@
+user:
+  hobby:
+    - code
+    - game
+    - study
+  id: 1
+  name: abin
+  pwd: 314159
+
+server:
+  port: 80
+
+
