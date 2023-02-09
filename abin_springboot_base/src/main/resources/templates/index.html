@@ -20,20 +20,8 @@
     <!-- Animation CSS -->
     <link th:href="@{/assets/css/vendor/aos.css}" rel="stylesheet"/>
 
-    <style>
-        #logout_menu{
-            min-width: 6rem;
-            padding: 0.2rem 0;
-            right: 0.5rem;
-            left: auto;
-        }
-        a[class*="logOutMenu"]{
-            padding: 0.3rem 1rem;
-        }
-        a[class*="logOutMenu"]:hover{
-            color: #0fb1ff;
-        }
-    </style>
+    <!-- Div CSS-->
+    <link rel="stylesheet" th:href="@{/assets/css/div/divCss.css}">
 
 </head>
 
@@ -44,62 +32,14 @@
 <!------------------------------------------
 NAVBAR
 ------------------------------------------->
-<nav class="topnav navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
-    <div class="container-fluid">
-        <a class="navbar-brand" th:href="@{/index}"><i class="fas fa-anchor mr-2"></i><strong>Abin_Java</strong></a>
-        <div class="navbar-collapse collapse" id="navbarColor02" style="">
-            <ul class="navbar-nav mr-auto d-flex align-items-center">
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/index}">Intro</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" th:href="@{#}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Examples </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" th:href="@{#}">Home Landing</a>
-                        <a class="dropdown-item" th:href="@{/abin}">User Login</a>
-                        <a class="dropdown-item" th:href="@{#}">Blog Index</a>
-                        <a class="dropdown-item" th:href="@{#}">Sample Page</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{#}">Docs</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav ml-auto d-flex align-items-center">
-                <li class="nav-item">
-                    <img th:src="@{/assets/img/123.png}" style="border-radius:45px;width: 30px;height: 30px" alt="">
-                </li>
-                <li class="nav-item dropdown">
-                    <a href="" class="nav-link dropdown-toggle" role="button" id="navbarDropdown2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span th:text="${#request.getSession().getAttribute('username')}"></span>
-                    </a>
-                    <div class="dropdown-menu"  aria-labelledby="navbarDropdown2" id="logout_menu">
-                        <a class="dropdown-item logOutMenu" th:href="@{/user/logout}">User Logout</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<div th:replace="~{commons/common::navBar}"></div>
 <!-- End Navbar -->
 
 
 <!------------------------------------------
 HEADER
 ------------------------------------------->
-<div class="jumbotron jumbotron-lg jumbotron-fluid mb-3 bg-primary position-relative">
-    <div class="container text-white h-100 tofront">
-        <div class="row align-items-center justify-content-center text-center">
-            <div class="col-md-10">
-                <h1 class="display-3">
-                    SpringBoot Project<br>
-                    Anchor Bootstrap UI KIT
-                </h1>
-            </div>
-        </div>
-    </div>
-</div>
+<div th:replace="~{commons/common::headBar}"></div>
 <!-- End Header -->
 
 
@@ -227,99 +167,12 @@ HEADER
     </div>
 </section>
 
-<!------------------------------------------
-SUBSCRIBE
-------------------------------------------->
-
-
-<!------------------------------------------
-DEMO MODAL & DONATE BUTTON ONLY - DON'T COPY
-------------------------------------------->
-<div class="modal fade" id="modal_newsletter" tabindex="-1" role="dialog" aria-labelledby="modal_newsletter" aria-hidden="true">
-    <div class="modal-dialog shadow-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="d-flex align-items-center justify-content-center">
-                    <em class="text-muted mr-2">Share this freebie:</em>
-                    <!-- Share Facebook -->
-                    <span class="c-pointer iconbox iconsmall rounded-circle bg-secondary text-white mr-1" data-sharer="facebook" data-url="https://www.wowthemes.net/anchor-free-bootstrap-ui-kit/"><i class="fab fa-facebook-f"></i></span>
-                    <!-- Share Twitter -->
-                    <span class="c-pointer iconbox iconsmall rounded-circle bg-info text-white mr-1" data-sharer="twitter" data-title="Download Anchor - Free Bootstrap 4.1.x UI Kit with Sass!" data-hashtags="bootstrap,free" data-url="https://www.wowthemes.net/anchor-free-bootstrap-ui-kit/"><i class="fab fa-twitter"></i></span>
-                    <!-- Share Google+ -->
-                    <span class="c-pointer iconbox iconsmall rounded-circle bg-danger text-white mr-1" data-sharer="googleplus" data-url="https://www.wowthemes.net/anchor-free-bootstrap-ui-kit/"><i class="fab fa-google"></i></span>
-                    <!-- Share E-mail -->
-                    <span class="c-pointer iconbox iconsmall rounded-circle bg-purple text-white mr-1" data-sharer="email" data-title="Bootstrap KIT Url" data-url="https://www.wowthemes.net/anchor-free-bootstrap-ui-kit/" data-subject="Download Anchor - Free Bootstrap 4.1.x UI Kit with Sass!" data-to="some@email.com"><i class="fas fa-envelope"></i></span>
-                    <!-- Sharingbutton Pinterest -->
-                    <span class="c-pointer iconbox iconsmall rounded-circle bg-danger text-white mr-1" data-sharer="pinterest" data-url="https://www.wowthemes.net/anchor-free-bootstrap-ui-kit/"><i class="fab fa-pinterest"></i></span>
-                </div>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-<!--------------------------------------
-END DEMO MODAL & DONATE BUTTON
---------------------------------------->
-
-
 <!--------------------------------------
 FOOTER
 --------------------------------------->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 1440 126" style="enable-background:new 0 0 1440 126;" xml:space="preserve">
-<path class="bg-black" d="M685.6,38.8C418.7-11.1,170.2,9.9,0,30v96h1440V30C1252.7,52.2,1010,99.4,685.6,38.8z"/>
-</svg>
-<footer class="bg-black pb-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-md mr-4">
-                <i class="fas fa-copyright text-white"></i>
-                <small class="d-block mt-3 mb-4 text-muted">©
-                    <script>document.write(new Date().getFullYear())</script>
-                    Anchor Bootstrap UI Kit,  by <a target="_blank" th:href="@{https://www.wowthemes.net}">WowThemes.net</a>. License Marketing
-                </small>
-            </div>
-            <div class="col-6 col-md">
-                <h5 class="mb-4 text-white">Features</h5>
-                <ul class="list-unstyled text-small">
-                    <li><a class="text-muted" th:href="@{#}">Cool stuff</a></li>
-                    <li><a class="text-muted" th:href="@{#}">Random feature</a></li>
-                    <li><a class="text-muted" th:href="@{#}">Team feature</a></li>
-                    <li><a class="text-muted" th:href="@{#}">Stuff for developers</a></li>
-                </ul>
-            </div>
-            <div class="col-6 col-md">
-                <h5 class="mb-4 text-white">Resources</h5>
-                <ul class="list-unstyled text-small">
-                    <li><a class="text-muted" th:href="@{#}">Resource</a></li>
-                    <li><a class="text-muted" th:href="@{#}">Resource name</a></li>
-                    <li><a class="text-muted" th:href="@{#}">Another resource</a></li>
-                    <li><a class="text-muted" th:href="@{#}">Final resource</a></li>
-                </ul>
-            </div>
-            <div class="col-6 col-md">
-                <h5 class="mb-4 text-white">Utilities</h5>
-                <ul class="list-unstyled text-small">
-                    <li><a class="text-muted" th:href="@{#}">Business</a></li>
-                    <li><a class="text-muted" th:href="@{#}">Education</a></li>
-                    <li><a class="text-muted" th:href="@{#}">Government</a></li>
-                    <li><a class="text-muted" th:href="@{#}">Gaming</a></li>
-                </ul>
-            </div>
-            <div class="col-6 col-md">
-                <h5 class="mb-4 text-white">About</h5>
-                <ul class="list-unstyled text-small">
-                    <li><a class="text-muted" th:href="@{#}">Team</a></li>
-                    <li><a class="text-muted" th:href="@{#}">Locations</a></li>
-                    <li><a class="text-muted" th:href="@{#}">Privacy</a></li>
-                    <li><a class="text-muted" th:href="@{#}">Terms</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</footer>
+<div th:replace="~{commons/common::footBar}"></div>
 
+<!-- End FOOTER -->
 
 
 <!--------------------------------------

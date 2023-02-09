@@ -41,7 +41,7 @@
 	</div>
 	<div class="col-md-6 p-0 bg-white h-md-100 loginarea">
 		<div class="d-md-flex align-items-center h-md-100 p-5 justify-content-center">
-			<form class="border rounded p-5" th:action="@{/user/login}" method="get">
+			<form class="border rounded p-5" th:action="@{/user/login}" method="post">
 				<h3 class="mb-4 text-center">Welcome</h3>
 				<div class="form-group">
 					<input type="text" th:name="username" class="form-control"  placeholder="Username" required="">
@@ -53,7 +53,7 @@
 					<span style="color: red" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></span>
 				</div>
 				<div class="form-group form-check">
-					<input type="checkbox" class="form-check-input" th:name="cookie" th:value="check">
+					<input type="checkbox" class="form-check-input" th:name="cookie" th:value="check" checked>
 					<label class="form-check-label small text-muted">Remember me</label>
 				</div>
 				<button type="submit" class="btn btn-success btn-round btn-block shadow-sm">Sign in</button>

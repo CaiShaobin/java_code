@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <link rel="apple-touch-icon" sizes="76x76" th:href="@{/assets/img/favicon.ico}">
+    <link rel="icon" type="image/png" th:href="@{/assets/img/favicon.ico}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>abin_page</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport'/>
+
+    <!-- Google Font -->
+    <link th:href="@{https://fonts.googleapis.com/css?family=Nunito:300,300i,400,600,800}" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" th:href="@{https://use.fontawesome.com/releases/v5.3.1/css/all.css}" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!-- Main CSS -->
+    <link th:href="@{/assets/css/main.css}" rel="stylesheet"/>
+
+    <!-- Animation CSS -->
+    <link th:href="@{/assets/css/vendor/aos.css}" rel="stylesheet"/>
+
+    <!-- Div CSS-->
+    <link rel="stylesheet" th:href="@{/assets/css/div/divCss.css}">
+</head>
+
+<body>
+    <!------------------------------------------
+    NAVBAR
+    ------------------------------------------->
+    <div th:replace="~{commons/common::navBar}"></div>
+    <!-- End Navbar -->
+
+    <!--------------------------------------
+   List
+   --------------------------------------->
+    <section class="pt-5 pb-5" data-aos="fade-down">
+        <div class="container">
+
+            <div class="d-flex justify-content-center mh-30rem py-11">
+                <div class="align-self-center">
+                    <h1 class="hero-title mb-2" style="margin-top: 8rem;text-align: center;color: #502c6c">Bootstrap</h1>
+                    <div class="lead text-white-70">简洁、直观、强悍的前端开发框架，让web开发更迅速、简单。</div>
+                </div>
+            </div>
+
+            <div class="row gap-y">
+                <div class="col-md-12 column">
+                    <div class="form-group">
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">EmpId</th>
+                                    <th scope="col">LastName</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Gender</th>
+                                    <th scope="col">Department</th>
+                                    <th scope="col">Birth</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="emp:${empList}">
+                                    <th scope="row" th:text="${emp.getId()}"></th>
+                                    <td th:text="${emp.getLastName()}"></td>
+                                    <td th:text="${emp.getEmail()}"></td>
+                                    <td th:switch="${emp.getGender()}">
+                                        <span th:case="1">男</span>
+                                        <span th:case="0">女</span>
+                                    </td>
+                                    <td th:text="${emp.getDepartment().getDepName()}"></td>
+                                    <td th:text="${emp.getBirth()}"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+    <!-- End List -->
+
+
+
+
+    <!--------------------------------------
+    FOOTER
+    --------------------------------------->
+    <div th:replace="~{commons/common::footBar}"></div>
+
+    <!-- End FOOTER -->
+
+
+
+
+    <!--------------------------------------
+    JAVASCRIPTS
+    --------------------------------------->
+    <script th:src="@{/assets/js/vendor/jquery.min.js}" type="text/javascript"></script>
+    <script th:src="@{/assets/js/vendor/popper.min.js}" type="text/javascript"></script>
+    <script th:src="@{/assets/js/vendor/bootstrap.min.js}" type="text/javascript"></script>
+    <script th:src="@{/assets/js/functions.js}" type="text/javascript"></script>
+
+    <!-- Animation -->
+    <script th:src="@{/assets/js/vendor/aos.js}" type="text/javascript"></script>
+    <noscript>
+        <style>
+            *[data-aos] {
+                display: block !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        AOS.init({
+            duration: 700
+        });
+    </script>
+
+    <!-- Disable animation on less than 1200px, change value if you like -->
+    <script>
+        AOS.init({
+            disable: function () {
+                var maxWidth = 1200;
+                return window.innerWidth < maxWidth;
+            }
+        });
+    </script>
+
+</body>
+</html>
