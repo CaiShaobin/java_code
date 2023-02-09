@@ -5,9 +5,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 
 @Controller
 @RequestMapping("/user")
@@ -27,6 +29,13 @@ public class UserController {
             model.addAttribute("msg","密码错误！");
             return "login";
         }
-
     }
+
+    @RequestMapping("/logout")
+    public String userLogout(HttpServletRequest request,HttpServletResponse response,Model model) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        session.invalidate();
+        return "login";
+    }
+
 }
