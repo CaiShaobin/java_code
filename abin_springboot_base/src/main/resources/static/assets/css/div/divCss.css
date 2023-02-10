@@ -10,3 +10,7 @@ a[class*="logOutMenu"]{
 a[class*="logOutMenu"]:hover{
     color: rgba(95, 123, 184, 0.98);
 }
+
+.divForm{
+    margin: 1rem 0;
+}

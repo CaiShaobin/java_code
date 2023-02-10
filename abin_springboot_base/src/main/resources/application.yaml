@@ -9,5 +9,6 @@ user:
 
 server:
   port: 80
-
-
+spring:
+  mvc:
+    date-format: yyyy-MM-dd HH:mm:ss
