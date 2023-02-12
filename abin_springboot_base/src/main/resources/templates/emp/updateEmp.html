@@ -73,7 +73,7 @@
                         </div>
                         <div class="row divForm">
                             <label th:for="birth">Birthday</label>
-                            <input type="text" name="birth" class="form-control input-round" th:value="${#dates.format(emp.getBirth(),'yyyy-MM-dd HH:mm:ss')}" placeholder="Birthday">
+                            <input type="date" name="birth" class="form-control input-round" th:value="${#dates.format(emp.getBirth(),'yyyy-MM-dd')}" placeholder="Birthday">
                         </div>
                         <div class="col" style="text-align: center">
                             <button type="submit" class="btn btn-primary btn-round" id="updateEmp" >Update_Employee</button>

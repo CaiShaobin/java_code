@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.abin.dao.EmpDao">
+
+    <insert id="addEmp" parameterType="employee">
+        insert into employee(lastName, email, gender, depId, birth)
+        values (#{lastName}, #{email}, #{gender}, #{department.depId}, #{birth})
+    </insert>
+    <update id="updateEmp" parameterType="employee">
+        update employee
+        set lastName = #{lastName},
+            email    = #{email},
+            gender   = #{gender},
+            depId    = #{department.depId},
+            birth    = #{birth}
+        where id = #{id}
+    </update>
+
+    <delete id="deleteEmp">
+        delete
+        from employee
+        where id = #{id}
+    </delete>
+
+    <select id="getEmpList" resultMap="emp_dep">
+        select *
+        from employee
+    </select>
+
+    <resultMap id="emp_dep" type="employee">
+        <association property="department" column="{id=depId}" javaType="department" select="getDepById"/>
+    </resultMap>
+
+    <select id="getDepById" resultType="com.abin.pojo.Department">
+        select *
+        from department
+        where depId = #{id}
+    </select>
+
+    <select id="getEmpById" resultMap="emp_dep">
+        select *
+        from employee
+        where id = #{id}
+    </select>
+</mapper>

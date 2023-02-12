@@ -76,7 +76,7 @@
 <!--                                    </td>-->
                                     <td th:text="${emp.getGender()==1?'男':'女'}"></td>
                                     <td th:text="${emp.getDepartment().getDepName()}"></td>
-                                    <td th:text="${#dates.format(emp.getBirth(),'yyyy-MM-dd HH:mm:ss')}"></td>
+                                    <td th:text="${#dates.format(emp.getBirth(),'yyyy-MM-dd')}"></td>
                                     <td>
                                         <a th:href="@{/emp/toUpdate/}+${emp.getId()}" class="btn btn-outline-primary" >Update</a>
                                         <a th:href="@{/emp/delEmp/}+${emp.getId()}" class="btn btn-outline-danger">Delete</a>
