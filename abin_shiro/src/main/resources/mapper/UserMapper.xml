@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.abin.dao.UserDao">
+    <select id="getUserById" resultMap="u_r">
+        select * from user where id = #{id}
+    </select>
+    <select id="getUser" resultMap="u_r">
+        select * from user
+    </select>
+
+    <resultMap id="u_r" type="user">
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+        <association property="role" column="id" javaType="role" select="getRoleById"/>
+    </resultMap>
+
+    <select id="getRoleById" resultMap="r_p">
+        select * from role r,user_role ur where r.id = ur.role_id and ur.user_id = #{id};
+    </select>
+    
+    <resultMap id="r_p" type="role">
+        <id property="id" column="id"/>
+        <result property="role" column="role"/>
+        <collection property="permission" column="id" ofType="permission" select="getPermissionById"/>
+    </resultMap>
+
+    <select id="getPermissionById" resultType="permission">
+        select p.id,p.permission from permission p,role_permission rp where p.id = rp.permission_id and rp.role_id = #{id}
+    </select>
+</mapper>
