@@ -1,0 +1,13 @@
+
+server:
+  port: 8002
+#  注册中心地址
+dubbo:
+  registry:
+    address: zookeeper://120.46.129.186:2181
+  #    应用名
+  application:
+    name: provider-server
+  #    扫描包
+  scan:
+    base-packages: com.abin.service

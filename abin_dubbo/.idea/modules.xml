@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/abin_dubbo.iml" filepath="$PROJECT_DIR$/abin_dubbo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dubbo_ticket/dubbo_ticket.iml" filepath="$PROJECT_DIR$/dubbo_ticket/dubbo_ticket.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dubbo_user/dubbo_user.iml" filepath="$PROJECT_DIR$/dubbo_user/dubbo_user.iml" />
+    </modules>
+  </component>
+</project>
