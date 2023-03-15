@@ -1,0 +1,57 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/tx
+        https://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <context:property-placeholder location="classpath:db.properties" />
+
+
+    <context:component-scan base-package="com.abin"/>
+    <aop:aspectj-autoproxy/>
+
+    <import resource="spring-beans.xml"/>
+
+    <bean id="dataSource0" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${driver}"/>
+        <property name="url" value="${url0}"/>
+        <property name="username" value="${db0.username}"/>
+        <property name="password" value="${db0.password}"/>
+    </bean>
+
+    <bean id="dataSource1" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${driver}"/>
+        <property name="url" value="${url1}"/>
+        <property name="username" value="${db1.username}"/>
+        <property name="password" value="${db1.password}"/>
+    </bean>
+    
+    <bean id="shardDataSource" class="com.abin.config.DivDatasource">
+        <property name="targetDataSources">
+            <map>
+                <entry key="#{T(com.abin.config.DatasourceType.DataBaseType).Master}" value-ref="dataSource0"/>
+                <entry key="#{T(com.abin.config.DatasourceType.DataBaseType).Slave}" value-ref="dataSource1"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="shardDataSource" />
+
+        <property name="configLocation" value="mybatis-config.xml"/>
+        <property name="mapperLocations" value="com/abin/dao/*.xml"/>
+    </bean>
+
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg index="0" ref="sqlSessionFactory"/>
+    </bean>
+
+</beans>
